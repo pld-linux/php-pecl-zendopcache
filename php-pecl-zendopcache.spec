@@ -6,7 +6,7 @@ Summary:	Zend Optimizer+ - PHP code optimizer
 Summary(pl.UTF-8):	Zend Optimizer+ - optymalizator kodu PHP
 Name:		php-pecl-%{modname}
 Version:	7.0.1
-Release:	0.1
+Release:	1
 License:	PHP 3.01
 Group:		Libraries
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
@@ -40,14 +40,13 @@ rm -rf $RPM_BUILD_ROOT
 	EXTENSION_DIR=%{php_extensiondir} \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
-# TODO:
 # NOTE: In case you are going to use Zend OPcache together with Xdebug,
 # be sure that Xdebug is loaded after OPcache. "php -v" must show Xdebug
 # after OPcache.
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 ; Enable %{modname} zend extension module
-zend_extension=opcache.so
+zend_extension=%{php_extensiondir}/opcache.so
 EOF
 
 %clean
