@@ -11,6 +11,7 @@ License:	PHP 3.01
 Group:		Libraries
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	3a0a43a4819c72763bc35ecf5689221e
+Source1:	%{modname}.ini
 URL:		http://pecl.php.net/package/zendopcache
 BuildRequires:	php-devel >= 4:5.0.4
 BuildRequires:	rpmbuild(macros) >= 1.519
@@ -44,10 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 # be sure that Xdebug is loaded after OPcache. "php -v" must show Xdebug
 # after OPcache.
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
-; Enable %{modname} zend extension module
-zend_extension=%{php_extensiondir}/opcache.so
-EOF
+sed -e 's,@extensiondir@,%{php_extensiondir},' %{SOURCE1} > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 
 %clean
 rm -rf $RPM_BUILD_ROOT
