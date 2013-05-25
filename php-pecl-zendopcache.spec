@@ -1,19 +1,20 @@
 # NOTE:
 # This version of Zend OPcache is compatible with PHP 5.2.*, 5.3.*, 5.4.*
 # and PHP-5.5 development branch.  PHP 5.2 support may be removed in the future.
+%define		php_name	php%{?php_suffix}
 %define		modname	zendopcache
 Summary:	Zend Optimizer+ - PHP code optimizer
 Summary(pl.UTF-8):	Zend Optimizer+ - optymalizator kodu PHP
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	7.0.1
-Release:	1
+Release:	2
 License:	PHP 3.01
-Group:		Libraries
+Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	3a0a43a4819c72763bc35ecf5689221e
 Source1:	%{modname}.ini
 URL:		http://pecl.php.net/package/zendopcache
-BuildRequires:	php-devel >= 4:5.0.4
+BuildRequires:	%{php_name}-devel >= 4:5.0.4
 BuildRequires:	rpmbuild(macros) >= 1.519
 %{?requires_php_extension}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,5 +62,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc README LICENSE
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/opcache.so
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/php/conf.d/%{modname}.ini
