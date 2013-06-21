@@ -6,15 +6,15 @@
 Summary:	Zend Optimizer+ - PHP code optimizer
 Summary(pl.UTF-8):	Zend Optimizer+ - optymalizator kodu PHP
 Name:		%{php_name}-pecl-%{modname}
-Version:	7.0.1
-Release:	2
+Version:	7.0.2
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	3a0a43a4819c72763bc35ecf5689221e
+# Source0-md5:	a175166ac32544051bd3277cc00a7b5d
 Source1:	%{modname}.ini
 URL:		http://pecl.php.net/package/zendopcache
-BuildRequires:	%{php_name}-devel >= 4:5.0.4
+BuildRequires:	%{php_name}-devel >= 4:5.2
 BuildRequires:	rpmbuild(macros) >= 1.519
 %{?requires_php_extension}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
