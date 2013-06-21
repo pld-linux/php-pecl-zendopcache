@@ -15,7 +15,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
 URL:		http://pecl.php.net/package/zendopcache
 BuildRequires:	%{php_name}-devel >= 4:5.2
-BuildRequires:	rpmbuild(macros) >= 1.519
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
