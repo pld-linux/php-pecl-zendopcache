@@ -10,10 +10,10 @@ Version:	7.0.5
 Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+Source0:	https://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	0c2710c272e398bea89d41dee42ee633
 Source1:	%{modname}.ini
-URL:		http://pecl.php.net/package/zendopcache
+URL:		https://pecl.php.net/package/zendopcache
 BuildRequires:	%{php_name}-devel >= 4:5.2
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
